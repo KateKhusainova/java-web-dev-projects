@@ -6,13 +6,18 @@ public class MenuItem {
     private String category;
     private double price;
     private boolean isNew;
+    public static int nextId = 1;
+    private final int id;
+
 
     public MenuItem (String name, String description, String category, double price, boolean isNew){
         this.name = name;
         this.description = description;
         this.category = category;
         this.price = price;
-        this.isNew = isNew;
+        this.isNew = true;
+        this.id = nextId;
+        nextId++;
     }
     //Setters
     public void setName (String name) {
@@ -28,7 +33,33 @@ public class MenuItem {
         this.price = price;
     }
     public void setIsNew (boolean aNew) {
-        this.isNew = aNew;
+        isNew = aNew;
+    }
+
+    //Getters
+    public String getName() {
+        return name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public boolean isNew() {
+        return isNew;
+    }
+    public int getId() {
+        return id;
+    }
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if (!(o instanceof MenuItem)) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return id == menuItem.id;
     }
 
 }
