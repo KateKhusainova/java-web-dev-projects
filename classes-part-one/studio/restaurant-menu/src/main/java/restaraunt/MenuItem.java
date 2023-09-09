@@ -1,5 +1,7 @@
 package restaraunt;
 
+import java.util.Objects;
+
 public class MenuItem {
     private String name;
     private String description;
@@ -55,11 +57,27 @@ public class MenuItem {
     public int getId() {
         return id;
     }
+
+    @Override
     public boolean equals(Object o) {
-        if(this == o) return true;
+        if (this == o) return true;
         if (!(o instanceof MenuItem)) return false;
         MenuItem menuItem = (MenuItem) o;
         return id == menuItem.id;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

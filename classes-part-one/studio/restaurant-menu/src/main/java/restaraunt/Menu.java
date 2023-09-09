@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class Menu {
    private Date lastUpdated;
    private ArrayList<MenuItem> items;
-   public Menu (Date lastUpdated, ArrayList<MenuItem> items) {
-      this.lastUpdated = new Date();
+   public Menu (ArrayList<MenuItem> items) {
       this.items = items;
+      this.lastUpdated = new Date();
    }
 //Setters
    public void setLastUpdated (Date lastUpdated) {
@@ -36,5 +36,12 @@ public class Menu {
     public void simplePrintItem(int index){
        MenuItem oneItem = this.items.get(index);
        System.out.println(oneItem.getName() + ":" + oneItem.getPrice());
+    }
+    //print all
+    public void printAll () {
+       for(int i=0; i<this.items.size(); i++) {
+           MenuItem oneItem = this.items.get(i);
+           System.out.println(oneItem.toString());
+       }
     }
 }
