@@ -14,7 +14,7 @@ public class CD extends BaseDisc implements OpticalDisc {
 
     @Override
     public void storeData(String data) {
-         this.writeData();
+         this.writeData(data);
     }
 
 
